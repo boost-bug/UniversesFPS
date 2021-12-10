@@ -1,0 +1,457 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/gray.tres" type="Material" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/SpawnMover.gd" type="Script" id=3]
+
+[sub_resource type="ProceduralSky" id=1]
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_energy = 3.0
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 557, 4, 836 )
+
+[sub_resource type="CubeMesh" id=4]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 135, 0 )
+
+[node name="Static" type="Spatial" parent="."]
+
+[node name="Cross" type="CSGCombiner" parent="Static"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 88, 0 )
+snap = 0.004
+use_collision = true
+
+[node name="CSGBox" type="CSGBox" parent="Static/Cross"]
+width = 32.0
+height = 4.0
+depth = 32.0
+material = ExtResource( 1 )
+
+[node name="CSGBox2" type="CSGBox" parent="Static/Cross"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 0, 0 )
+width = 120.0
+height = 4.0
+depth = 12.0
+material = ExtResource( 1 )
+
+[node name="CSGBox5" type="CSGBox" parent="Static/Cross"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0 )
+width = 88.0
+height = 4.0
+depth = 12.0
+material = ExtResource( 1 )
+
+[node name="CSGBox3" type="CSGBox" parent="Static/Cross"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 60 )
+width = 12.0
+height = 4.0
+depth = 88.0
+material = ExtResource( 1 )
+
+[node name="CSGBox4" type="CSGBox" parent="Static/Cross"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -60 )
+width = 12.0
+height = 4.0
+depth = 88.0
+material = ExtResource( 1 )
+
+[node name="Cross2" type="CSGCombiner" parent="Static"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 72, -40, 72 )
+snap = 0.004
+use_collision = true
+
+[node name="CSGBox" type="CSGBox" parent="Static/Cross2"]
+width = 32.0
+height = 4.0
+depth = 32.0
+material = ExtResource( 1 )
+
+[node name="CSGBox2" type="CSGBox" parent="Static/Cross2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 0 )
+width = 56.0
+height = 4.0
+depth = 12.0
+material = ExtResource( 1 )
+
+[node name="CSGBox5" type="CSGBox" parent="Static/Cross2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 0, 0 )
+width = 56.0
+height = 4.0
+depth = 12.0
+material = ExtResource( 1 )
+
+[node name="CSGBox3" type="CSGBox" parent="Static/Cross2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 44 )
+width = 12.0
+height = 4.0
+depth = 56.0
+material = ExtResource( 1 )
+
+[node name="CSGBox4" type="CSGBox" parent="Static/Cross2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -44 )
+width = 12.0
+height = 4.0
+depth = 56.0
+material = ExtResource( 1 )
+
+[node name="Cross3" type="CSGCombiner" parent="Static"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -72, -40, 72 )
+snap = 0.004
+use_collision = true
+
+[node name="CSGBox" type="CSGBox" parent="Static/Cross3"]
+width = 32.0
+height = 4.0
+depth = 32.0
+material = ExtResource( 1 )
+
+[node name="CSGBox2" type="CSGBox" parent="Static/Cross3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 0 )
+width = 56.0
+height = 4.0
+depth = 12.0
+material = ExtResource( 1 )
+
+[node name="CSGBox5" type="CSGBox" parent="Static/Cross3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 0, 0 )
+width = 56.0
+height = 4.0
+depth = 12.0
+material = ExtResource( 1 )
+
+[node name="CSGBox3" type="CSGBox" parent="Static/Cross3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 44 )
+width = 12.0
+height = 4.0
+depth = 56.0
+material = ExtResource( 1 )
+
+[node name="CSGBox4" type="CSGBox" parent="Static/Cross3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -44 )
+width = 12.0
+height = 4.0
+depth = 56.0
+material = ExtResource( 1 )
+
+[node name="Cross4" type="CSGCombiner" parent="Static"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 72, -40, -72 )
+snap = 0.004
+use_collision = true
+
+[node name="CSGBox" type="CSGBox" parent="Static/Cross4"]
+width = 32.0
+height = 4.0
+depth = 32.0
+material = ExtResource( 1 )
+
+[node name="CSGBox2" type="CSGBox" parent="Static/Cross4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 0 )
+width = 56.0
+height = 4.0
+depth = 12.0
+material = ExtResource( 1 )
+
+[node name="CSGBox5" type="CSGBox" parent="Static/Cross4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 0, 0 )
+width = 56.0
+height = 4.0
+depth = 12.0
+material = ExtResource( 1 )
+
+[node name="CSGBox3" type="CSGBox" parent="Static/Cross4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 44 )
+width = 12.0
+height = 4.0
+depth = 56.0
+material = ExtResource( 1 )
+
+[node name="CSGBox4" type="CSGBox" parent="Static/Cross4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -44 )
+width = 12.0
+height = 4.0
+depth = 56.0
+material = ExtResource( 1 )
+
+[node name="Cross5" type="CSGCombiner" parent="Static"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -72, -40, -72 )
+snap = 0.004
+use_collision = true
+
+[node name="CSGBox" type="CSGBox" parent="Static/Cross5"]
+width = 32.0
+height = 4.0
+depth = 32.0
+material = ExtResource( 1 )
+
+[node name="CSGBox2" type="CSGBox" parent="Static/Cross5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 0 )
+width = 56.0
+height = 4.0
+depth = 12.0
+material = ExtResource( 1 )
+
+[node name="CSGBox5" type="CSGBox" parent="Static/Cross5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 0, 0 )
+width = 56.0
+height = 4.0
+depth = 12.0
+material = ExtResource( 1 )
+
+[node name="CSGBox3" type="CSGBox" parent="Static/Cross5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 44 )
+width = 12.0
+height = 4.0
+depth = 56.0
+material = ExtResource( 1 )
+
+[node name="CSGBox4" type="CSGBox" parent="Static/Cross5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -44 )
+width = 12.0
+height = 4.0
+depth = 56.0
+material = ExtResource( 1 )
+
+[node name="Cross6" type="CSGCombiner" parent="Static"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 72, -116, 72 )
+snap = 0.004
+use_collision = true
+
+[node name="CSGBox" type="CSGBox" parent="Static/Cross6"]
+width = 32.0
+height = 4.0
+depth = 32.0
+material = ExtResource( 1 )
+
+[node name="CSGBox2" type="CSGBox" parent="Static/Cross6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 0 )
+width = 56.0
+height = 4.0
+depth = 12.0
+material = ExtResource( 1 )
+
+[node name="CSGBox5" type="CSGBox" parent="Static/Cross6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 0, 0 )
+width = 56.0
+height = 4.0
+depth = 12.0
+material = ExtResource( 1 )
+
+[node name="CSGBox3" type="CSGBox" parent="Static/Cross6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 44 )
+width = 12.0
+height = 4.0
+depth = 56.0
+material = ExtResource( 1 )
+
+[node name="CSGBox4" type="CSGBox" parent="Static/Cross6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -44 )
+width = 12.0
+height = 4.0
+depth = 56.0
+material = ExtResource( 1 )
+
+[node name="Cross7" type="CSGCombiner" parent="Static"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -72, -116, 72 )
+snap = 0.004
+use_collision = true
+
+[node name="CSGBox" type="CSGBox" parent="Static/Cross7"]
+width = 32.0
+height = 4.0
+depth = 32.0
+material = ExtResource( 1 )
+
+[node name="CSGBox2" type="CSGBox" parent="Static/Cross7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 0 )
+width = 56.0
+height = 4.0
+depth = 12.0
+material = ExtResource( 1 )
+
+[node name="CSGBox5" type="CSGBox" parent="Static/Cross7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 0, 0 )
+width = 56.0
+height = 4.0
+depth = 12.0
+material = ExtResource( 1 )
+
+[node name="CSGBox3" type="CSGBox" parent="Static/Cross7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 44 )
+width = 12.0
+height = 4.0
+depth = 56.0
+material = ExtResource( 1 )
+
+[node name="CSGBox4" type="CSGBox" parent="Static/Cross7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -44 )
+width = 12.0
+height = 4.0
+depth = 56.0
+material = ExtResource( 1 )
+
+[node name="Cross8" type="CSGCombiner" parent="Static"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 72, -116, -72 )
+snap = 0.004
+use_collision = true
+
+[node name="CSGBox" type="CSGBox" parent="Static/Cross8"]
+width = 32.0
+height = 4.0
+depth = 32.0
+material = ExtResource( 1 )
+
+[node name="CSGBox2" type="CSGBox" parent="Static/Cross8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 0 )
+width = 56.0
+height = 4.0
+depth = 12.0
+material = ExtResource( 1 )
+
+[node name="CSGBox5" type="CSGBox" parent="Static/Cross8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 0, 0 )
+width = 56.0
+height = 4.0
+depth = 12.0
+material = ExtResource( 1 )
+
+[node name="CSGBox3" type="CSGBox" parent="Static/Cross8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 44 )
+width = 12.0
+height = 4.0
+depth = 56.0
+material = ExtResource( 1 )
+
+[node name="CSGBox4" type="CSGBox" parent="Static/Cross8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -44 )
+width = 12.0
+height = 4.0
+depth = 56.0
+material = ExtResource( 1 )
+
+[node name="Cross9" type="CSGCombiner" parent="Static"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -72, -116, -72 )
+snap = 0.004
+use_collision = true
+
+[node name="CSGBox" type="CSGBox" parent="Static/Cross9"]
+width = 32.0
+height = 4.0
+depth = 32.0
+material = ExtResource( 1 )
+
+[node name="CSGBox2" type="CSGBox" parent="Static/Cross9"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 0 )
+width = 56.0
+height = 4.0
+depth = 12.0
+material = ExtResource( 1 )
+
+[node name="CSGBox5" type="CSGBox" parent="Static/Cross9"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 0, 0 )
+width = 56.0
+height = 4.0
+depth = 12.0
+material = ExtResource( 1 )
+
+[node name="CSGBox3" type="CSGBox" parent="Static/Cross9"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 44 )
+width = 12.0
+height = 4.0
+depth = 56.0
+material = ExtResource( 1 )
+
+[node name="CSGBox4" type="CSGBox" parent="Static/Cross9"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -44 )
+width = 12.0
+height = 4.0
+depth = 56.0
+material = ExtResource( 1 )
+
+[node name="CSGCombiner" type="CSGCombiner" parent="Static"]
+use_collision = true
+
+[node name="CSGCylinder" type="CSGCylinder" parent="Static/CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -55, 0 )
+radius = 59.0
+height = 174.0
+sides = 40
+material = ExtResource( 1 )
+
+[node name="CSGBox" type="CSGBox" parent="Static/CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -206, 0 )
+width = 100.0
+height = 4.0
+depth = 100.0
+material = ExtResource( 1 )
+
+[node name="CSGBox2" type="CSGBox" parent="Static/CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 250, -206, 1 )
+width = 400.0
+height = 4.0
+depth = 50.0
+material = ExtResource( 1 )
+
+[node name="CSGBox3" type="CSGBox" parent="Static/CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -250, -206, -1 )
+width = 400.0
+height = 4.0
+depth = 50.0
+material = ExtResource( 1 )
+
+[node name="CSGBox4" type="CSGBox" parent="Static/CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -206, -250 )
+width = 50.0
+height = 4.0
+depth = 400.0
+material = ExtResource( 1 )
+
+[node name="CSGBox5" type="CSGBox" parent="Static/CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -206, 250 )
+width = 50.0
+height = 4.0
+depth = 400.0
+material = ExtResource( 1 )
+
+[node name="Dynamic" type="Spatial" parent="."]
+
+[node name="KillZone" type="Area" parent="Dynamic"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Dynamic/KillZone"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -236, 0 )
+shape = SubResource( 3 )
+
+[node name="Spawn" type="Position3D" parent="Dynamic"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 151, 0 )
+script = ExtResource( 3 )
+
+[node name="MoveTimer" type="Timer" parent="Dynamic/Spawn"]
+
+[node name="MeshInstance" type="MeshInstance" parent="Dynamic/Spawn"]
+visible = false
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="Spawns" type="Spatial" parent="Dynamic"]
+
+[node name="Spawn1" type="Position3D" parent="Dynamic/Spawns"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 155, -71 )
+
+[node name="Spawn2" type="Position3D" parent="Dynamic/Spawns"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 153, 59 )
+
+[node name="Spawn3" type="Position3D" parent="Dynamic/Spawns"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -77, 26, 78 )
+
+[connection signal="area_entered" from="Dynamic/KillZone" to="Dynamic/KillZone" method="_on_KillZone_area_entered"]
+[connection signal="timeout" from="Dynamic/Spawn/MoveTimer" to="Dynamic/Spawn" method="_MoveSpawn"]
