@@ -1,6 +1,6 @@
 extends KinematicBody
 
-const GRAVITY = -24.8
+var GRAVITY = -24.8
 var vel = Vector3()
 var MAX_SPEED = 20
 var JUMP_SPEED = 18
@@ -105,3 +105,17 @@ func _input(event):
 		var camera_rot = rotation_helper.rotation_degrees
 		camera_rot.x = clamp(camera_rot.x, -70, 70)
 		rotation_helper.rotation_degrees = camera_rot
+	if Input.is_action_just_pressed("cheat_fly"):
+		if (GRAVITY):
+			print('gravity diabled')
+			GRAVITY = 0
+			cheatText('gravity disabled')
+		else:
+			print('gravity enabled')
+			GRAVITY = -24.8
+			cheatText('gravity enabled')
+func cheatText(text):
+	var label = $Rotation_Helper/Camera/Label
+	label.text = text
+	$Tween.interpolate_property(label, 'modulate', Color(1, 1, 1, 1), Color(1, 1, 1, 0), 1)
+	$Tween.start()
