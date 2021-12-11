@@ -43,7 +43,8 @@ func process_input(delta):
 		input_movement_vector.x -= 1
 	if Input.is_action_pressed("movement_right"):
 		input_movement_vector.x += 1
-
+	if Input.is_action_pressed("shoot"):
+		$Rotation_Helper/Camera/gun1/AnimationPlayer.play("Shoot")
 	input_movement_vector = input_movement_vector.normalized()
 
 	# Basis vectors are already normalized.
