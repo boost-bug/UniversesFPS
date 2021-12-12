@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="ParticlesMaterial" id=10]
+emission_shape = 2
+emission_box_extents = Vector3( 0.05, 0.05, 0.05 )
+direction = Vector3( 0, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 17.8
+
+[sub_resource type="CubeMesh" id=11]
+size = Vector3( 0.03, 0.03, 0.03 )
+
+[node name="Particles" type="Particles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.291624 )
+amount = 1000
+lifetime = 14.03
+process_material = SubResource( 10 )
+draw_pass_1 = SubResource( 11 )

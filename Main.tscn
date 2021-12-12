@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/gray.tres" type="Material" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/SpawnMover.gd" type="Script" id=3]
+[ext_resource path="res://scripts/killableMapObj.gd" type="Script" id=4]
+[ext_resource path="res://addons/midi/MidiPlayer.gd" type="Script" id=6]
 
 [sub_resource type="ProceduralSky" id=1]
 
@@ -12,11 +14,18 @@ background_sky = SubResource( 1 )
 ambient_light_color = Color( 1, 1, 1, 1 )
 ambient_light_energy = 3.0
 glow_enabled = true
+glow_intensity = 2.06
+glow_strength = 0.88
+glow_bloom = 0.84
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 557, 4, 836 )
 
 [sub_resource type="CubeMesh" id=4]
+
+[sub_resource type="BoxShape" id=5]
+
+[sub_resource type="CubeMesh" id=6]
 
 [node name="Spatial" type="Spatial"]
 
@@ -426,7 +435,7 @@ material = ExtResource( 1 )
 
 [node name="Dynamic" type="Spatial" parent="."]
 
-[node name="KillZone" type="Area" parent="Dynamic"]
+[node name="KillZone" type="Area" parent="Dynamic" groups=["KillZone"]]
 
 [node name="CollisionShape" type="CollisionShape" parent="Dynamic/KillZone"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -236, 0 )
@@ -459,6 +468,62 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -144.316, 0 )
 light_color = Color( 0.101961, 0.552941, 0.796078, 1 )
 light_energy = 5.688
 omni_range = 37.6295
+
+[node name="Killable" type="StaticBody" parent="Dynamic" groups=["KillableMapObj"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 97, -27 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Dynamic/Killable"]
+shape = SubResource( 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Dynamic/Killable"]
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Killable2" type="StaticBody" parent="Dynamic" groups=["KillableMapObj"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.5896, 35.6162, -27 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Dynamic/Killable2"]
+shape = SubResource( 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Dynamic/Killable2"]
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Killable3" type="StaticBody" parent="Dynamic" groups=["KillableMapObj"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -69.5406, -31.5048, -71.436 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Dynamic/Killable3"]
+shape = SubResource( 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Dynamic/Killable3"]
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Killable4" type="StaticBody" parent="Dynamic" groups=["KillableMapObj"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -169.529, -10.3365 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Dynamic/Killable4"]
+shape = SubResource( 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Dynamic/Killable4"]
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 299.081, 0 )
+bus = "FX1"
+
+[node name="GodotMIDIPlayer" type="Node" parent="."]
+script = ExtResource( 6 )
+file = "res://assets/music/zombies.mid"
+playing = true
+loop = true
+soundfont = "res://assets/music/TimGM6mb.sf2"
+bus = "FX2"
 
 [connection signal="area_entered" from="Dynamic/KillZone" to="Dynamic/KillZone" method="_on_KillZone_area_entered"]
 [connection signal="timeout" from="Dynamic/Spawn/MoveTimer" to="Dynamic/Spawn" method="_MoveSpawn"]

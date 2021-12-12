@@ -26,6 +26,6 @@ emission_operator = 0
 emission_on_uv2 = false
 
 [node name="Cone" type="MeshInstance"]
-transform = Transform( 0.0735946, 0, 0, 0, 0, 0.0735946, 0, -0.0735946, 0, 0, 0, 0.293271 )
+transform = Transform( 0.044, 0, 0, 0, -1.9233e-09, 0.044, 0, -0.044, -1.9233e-09, 0, 0, 0.293271 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )

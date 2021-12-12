@@ -16,6 +16,8 @@ var rotation_helper
 
 var MOUSE_SENSITIVITY = 0.1
 
+onready var AimCast = $Rotation_Helper/Camera/AimCast
+
 func _ready():
 	camera = $Rotation_Helper/Camera
 	rotation_helper = $Rotation_Helper
@@ -43,8 +45,7 @@ func process_input(delta):
 		input_movement_vector.x -= 1
 	if Input.is_action_pressed("movement_right"):
 		input_movement_vector.x += 1
-	if Input.is_action_pressed("shoot"):
-		$Rotation_Helper/Camera/gun1/AnimationPlayer.play("Shoot")
+	
 	input_movement_vector = input_movement_vector.normalized()
 
 	# Basis vectors are already normalized.
@@ -114,6 +115,14 @@ func _input(event):
 			print('gravity enabled')
 			GRAVITY = -24.8
 			cheatText('gravity enabled')
+	if Input.is_action_just_pressed("shoot"):
+		$Rotation_Helper/Camera/gun1/AnimationPlayer.play("Shoot")
+		if (AimCast.is_colliding()):
+			var colider = AimCast.get_collider()
+			print(colider)
+			if ('health' in colider):
+				colider.health -= 1
+
 func cheatText(text):
 	var label = $Rotation_Helper/Camera/Label
 	label.text = text
