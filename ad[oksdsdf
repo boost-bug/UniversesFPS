@@ -1,0 +1,29 @@
+[33mcommit 58e293e59e04587d66b99ff43ef23529f8735477[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Fishy Pug Bruh <fpbmail@mail.com>
+Date:   Wed Dec 15 20:59:45 2021 +0000
+
+    added title screen
+
+[33mcommit cae385791a7f4e862b47ec8b7ca8e537274d8fbc[m
+Author: Fishy Pug Bruh <fpbmail@mail.com>
+Date:   Sun Dec 12 14:19:06 2021 +0000
+
+    refeactored gun model
+
+[33mcommit 5304394d1288c0c8568deee868980bfa2f9f9f83[m
+Author: Fishy Pug Bruh <fpbmail@mail.com>
+Date:   Sat Dec 11 12:03:43 2021 +0000
+
+    added fly cheat
+
+[33mcommit 6148896932b182d4c355e96c7f056629dbd065c9[m
+Author: Fishy Pug Bruh <fpbmail@mail.com>
+Date:   Sat Dec 11 11:33:39 2021 +0000
+
+    added gun
+
+[33mcommit 339937dbdbe9cf5e97d3623dd18f5bb0d7e2f93d[m
+Author: Fishy Pug Bruh <fpbmail@mail.com>
+Date:   Fri Dec 10 17:13:44 2021 +0000
+
+    initial commit
