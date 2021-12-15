@@ -392,7 +392,7 @@ material = ExtResource( 1 )
 use_collision = true
 
 [node name="CSGCylinder" type="CSGCylinder" parent="Static/CSGCombiner"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.75406, -55.9468, 0.42572 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61891, -54.1899, 0.518333 )
 radius = 59.0
 height = 174.0
 sides = 40
@@ -524,6 +524,11 @@ playing = true
 loop = true
 soundfont = "res://assets/music/TimGM6mb.sf2"
 bus = "FX2"
+
+[node name="Screenshot" type="Camera" parent="."]
+transform = Transform( 0.479418, -0.395701, 0.783313, -0.0153235, 0.888665, 0.4583, -0.877453, -0.231721, 0.419979, 113.198, 102.037, 58.6979 )
+fov = 100.0
+far = 9999.0
 
 [connection signal="area_entered" from="Dynamic/KillZone" to="Dynamic/KillZone" method="_on_KillZone_area_entered"]
 [connection signal="timeout" from="Dynamic/Spawn/MoveTimer" to="Dynamic/Spawn" method="_MoveSpawn"]

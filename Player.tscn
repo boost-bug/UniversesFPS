@@ -195,7 +195,7 @@ enabled = true
 cast_to = Vector3( 0, 0, -1000 )
 
 [node name="gun1" parent="Rotation_Helper/Camera" instance=ExtResource( 7 )]
-transform = Transform( -4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, 0.427, -0.615999, -0.18 )
+transform = Transform( -4, 0, -3.49691e-07, 0, 4, 0, 3.49691e-07, 0, -4, 0.427, -0.615999, -0.18 )
 
 [node name="GunFlash" parent="Rotation_Helper/Camera/gun1" instance=ExtResource( 4 )]
 transform = Transform( 0.044, 0, 0, 0, -1.9233e-09, 0.044, 0, -0.044, -1.9233e-09, -5.80028e-05, 3.24249e-05, 0.284391 )
@@ -228,6 +228,24 @@ light_color = Color( 0.94902, 0.682353, 0.0470588, 1 )
 light_energy = 1.79
 omni_range = 5.406
 
+[node name="Control" type="Control" parent="Rotation_Helper/Camera"]
+margin_right = 1024.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Rotation_Helper/Camera/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -3.0
+margin_top = -4.0
+margin_right = 3.0
+margin_bottom = 4.0
+color = Color( 1, 1, 1, 0.623529 )
+
 [node name="gun1" parent="Rotation_Helper" instance=ExtResource( 3 )]
 transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -1.26058, 0.384403, 0.178144 )
 
@@ -239,4 +257,5 @@ script = ExtResource( 2 )
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 shape = SubResource( 6 )
 
+[connection signal="animation_finished" from="Rotation_Helper/Camera/gun1/AnimationPlayer" to="." method="_on_reload_done"]
 [connection signal="area_entered" from="Area" to="Area" method="_on_Area_area_entered"]

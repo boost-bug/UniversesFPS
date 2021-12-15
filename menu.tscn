@@ -1,0 +1,152 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scripts/Control.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/Mechanical-g5Y5.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/images/menuBG1.PNG" type="Texture" id=3]
+
+[sub_resource type="Shader" id=3]
+code = "shader_type canvas_item;
+
+uniform float xPlusY = 0;
+uniform float yPlusX = 0;
+
+void fragment() {
+	vec2 uv = UV;
+	uv.x += uv.y * xPlusY;
+	uv.y += uv.x * yPlusX;
+	COLOR = texture(TEXTURE, uv);
+}"
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 3 )
+shader_param/xPlusY = 0.0
+shader_param/yPlusX = 0.0
+
+[sub_resource type="Animation" id=5]
+resource_name = "BGscroll#"
+length = 10.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:material:shader_param/xPlusY")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -4, -0.25, 0, 0.25, 0, 3, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 10 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material:shader_param/yPlusX")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5, 5.7, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.4, 0.4, 0.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:material:shader_param/xPlusY")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material:shader_param/yPlusX")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="DynamicFont" id=1]
+size = 133
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 42
+font_data = ExtResource( 2 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="MenuBg1" type="Sprite" parent="."]
+modulate = Color( 0.843137, 0.843137, 0.843137, 1 )
+material = SubResource( 4 )
+position = Vector2( 512.5, 300 )
+scale = Vector2( 0.800469, 0.635593 )
+texture = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MenuBg1"]
+autoplay = "BGscroll#"
+anims/BGscroll# = SubResource( 5 )
+anims/RESET = SubResource( 6 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.173
+anchor_right = 0.5
+anchor_bottom = 0.398
+margin_left = -512.0
+margin_top = 0.199997
+margin_right = 512.0
+margin_bottom = 0.199982
+size_flags_horizontal = 3
+size_flags_vertical = 5
+custom_fonts/font = SubResource( 1 )
+text = "Fight World"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+
+[node name="Button" type="Button" parent="Control/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -131.0
+margin_top = -25.0
+margin_right = 131.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 2 )
+text = "Start Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}

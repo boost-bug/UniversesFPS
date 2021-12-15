@@ -8,6 +8,8 @@ const ACCEL = 4
 
 var dir = Vector3()
 
+var isGunReload = false
+
 const DEACCEL= 16
 const MAX_SLOPE_ANGLE = 40
 
@@ -117,7 +119,8 @@ func _input(event):
 			cheatText('gravity enabled')
 	if Input.is_action_just_pressed("shoot"):
 		$Rotation_Helper/Camera/gun1/AnimationPlayer.play("Shoot")
-		if (AimCast.is_colliding()):
+		if (AimCast.is_colliding() and not isGunReload):
+			isGunReload = true
 			var colider = AimCast.get_collider()
 			print(colider)
 			if ('health' in colider):
@@ -128,3 +131,7 @@ func cheatText(text):
 	label.text = text
 	$Tween.interpolate_property(label, 'modulate', Color(1, 1, 1, 1), Color(1, 1, 1, 0), 1)
 	$Tween.start()
+
+
+func _on_reload_done(anim_name):
+	isGunReload = false
