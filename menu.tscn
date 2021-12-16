@@ -1,24 +1,16 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scripts/Control.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Mechanical-g5Y5.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/images/menuBG1.PNG" type="Texture" id=3]
-
-[sub_resource type="Shader" id=3]
-code = "shader_type canvas_item;
-
-uniform float xPlusY = 0;
-uniform float yPlusX = 0;
-
-void fragment() {
-	vec2 uv = UV;
-	uv.x += uv.y * xPlusY;
-	uv.y += uv.x * yPlusX;
-	COLOR = texture(TEXTURE, uv);
-}"
+[ext_resource path="res://scripts/startGameBtn.gd" type="Script" id=4]
+[ext_resource path="res://assets/music/title.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/sounds/intro.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/fonts/ParentsSuck-YyBO.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://assets/shaders/distort1.gdshader" type="Shader" id=8]
 
 [sub_resource type="ShaderMaterial" id=4]
-shader = SubResource( 3 )
+shader = ExtResource( 8 )
 shader_param/xPlusY = 0.0
 shader_param/yPlusX = 0.0
 
@@ -143,8 +135,9 @@ tracks/0/keys = {
 }
 
 [sub_resource type="DynamicFont" id=1]
-size = 133
-font_data = ExtResource( 2 )
+size = 123
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="Animation" id=10]
 length = 0.001
@@ -176,6 +169,24 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 0.34151, 2.2974, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 104 ), Vector2( 0, 80 ), Vector2( 0, 104 ), Vector2( 0, 104 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "move"
+length = 0.25
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.08, 0.15, 0.2, 0.23, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 104 ), Vector2( -24, 88 ), Vector2( 48, 112 ), Vector2( -8, 120 ), Vector2( 32, 96 ), Vector2( -24, 80 ), Vector2( 0, 128 ) ]
 }
 
 [sub_resource type="DynamicFont" id=2]
@@ -224,8 +235,9 @@ margin_right = 512.0
 margin_bottom = 135.2
 size_flags_horizontal = 3
 size_flags_vertical = 5
+custom_colors/font_color = Color( 0.552941, 0.0352941, 0.0352941, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "Fight World"
+text = "Planed demolition"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -235,6 +247,7 @@ __meta__ = {
 autoplay = "bounce"
 anims/RESET = SubResource( 10 )
 anims/bounce = SubResource( 11 )
+anims/move = SubResource( 12 )
 
 [node name="Control" type="Control" parent="Control"]
 anchor_left = 0.5
@@ -256,7 +269,20 @@ margin_top = -25.0
 margin_right = 131.0
 margin_bottom = 25.0
 custom_fonts/font = SubResource( 2 )
-text = "Start Game"
+text = "Start"
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+bus = "FX2"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
+bus = "Voice1"
+
+[connection signal="button_down" from="Control/Control/Button" to="Control/Control/Button" method="_on_Button_button_down"]
