@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://assets/gray.tres" type="Material" id=1]
+[ext_resource path="res://assets/materials/gray.tres" type="Material" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/SpawnMover.gd" type="Script" id=3]
 [ext_resource path="res://scripts/killableMapObj.gd" type="Script" id=4]

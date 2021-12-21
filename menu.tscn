@@ -229,10 +229,9 @@ anchor_left = 0.5
 anchor_top = 0.173
 anchor_right = 0.5
 anchor_bottom = 0.398
-margin_left = -512.0
-margin_top = 0.200005
-margin_right = 512.0
-margin_bottom = 135.2
+margin_top = 104.0
+margin_right = 1024.0
+margin_bottom = 374.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 custom_colors/font_color = Color( 0.552941, 0.0352941, 0.0352941, 1 )
@@ -275,6 +274,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Tween" type="Tween" parent="Control/Control/Button"]
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 autoplay = true
@@ -282,7 +283,8 @@ bus = "FX2"
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
-autoplay = true
 bus = "Voice1"
 
 [connection signal="button_down" from="Control/Control/Button" to="Control/Control/Button" method="_on_Button_button_down"]
+[connection signal="mouse_entered" from="Control/Control/Button" to="Control/Control/Button" method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Control/Button" to="Control/Control/Button" method="_on_Button_mouse_exited"]
