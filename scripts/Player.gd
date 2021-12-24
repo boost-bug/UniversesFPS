@@ -61,8 +61,8 @@ func process_input(delta):
 		if Input.is_action_just_pressed("movement_jump"):
 			vel.y = JUMP_SPEED
 			print(MAX_SPEED)
-			if (MAX_SPEED < 40):
-				MAX_SPEED *= 1.14
+			if (MAX_SPEED < 50):
+				MAX_SPEED *= 1.16
 			$Tween.interpolate_property(self, 'MAX_SPEED', null, 20, 5)
 			$Tween.start()
 
