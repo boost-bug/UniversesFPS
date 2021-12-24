@@ -1,0 +1,12 @@
+Earths
+Dimensions (subsections of earths)
+
+Earth 256: Post apocalyptical world
+Earth undefined: Glitch world
+Earth -32,768: Beginning of time
+Earth nan: Invalid state world. Things will not work
+Earth -0: ???
+Earth 0.000000000000000000205: ???
+Earth Earth: ???
+: void
+Earth 666: dataNetwork bug summons Satan
