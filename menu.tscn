@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scripts/Control.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Mechanical-g5Y5.otf" type="DynamicFontData" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://assets/sounds/intro.wav" type="AudioStream" id=6]
 [ext_resource path="res://assets/images/universes.png" type="Texture" id=7]
 [ext_resource path="res://assets/shaders/distort1.gdshader" type="Shader" id=8]
+[ext_resource path="res://assets/images/updateCardBG.png" type="Texture" id=9]
+[ext_resource path="res://scripts/UpdateCard.gd" type="Script" id=10]
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 8 )
@@ -202,6 +204,104 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="DynamicFont" id=14]
+size = 12
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=15]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 816, 608 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "popDown"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.420448, 1 ),
+"update": 0,
+"values": [ Vector2( 816, 440 ), Vector2( 816, 608 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.427451 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.5, 0.5 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "popUp"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.217638, 1 ),
+"update": 0,
+"values": [ Vector2( 816, 608 ), Vector2( 816, 440 ) ]
+}
+
 [node name="Node2D" type="Node2D"]
 
 [node name="MenuBg1" type="Sprite" parent="."]
@@ -279,6 +379,54 @@ autoplay = "DRUGZ"
 anims/DRUGZ = SubResource( 12 )
 anims/RESET = SubResource( 13 )
 
+[node name="UpdateCard" type="Node2D" parent="."]
+position = Vector2( 816, 608 )
+script = ExtResource( 10 )
+
+[node name="UpdateCardBg" type="Sprite" parent="UpdateCard"]
+position = Vector2( 100, 76 )
+scale = Vector2( 0.0285063, 0.030639 )
+texture = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="UpdateCard"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 64.0
+margin_right = 191.0
+margin_bottom = 91.0
+custom_fonts/font = SubResource( 14 )
+text = "A New update is avalible.
+Click here to update"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UpdateCard"]
+anims/RESET = SubResource( 15 )
+anims/popDown = SubResource( 17 )
+anims/popUp = SubResource( 16 )
+
+[node name="UpdateBtn" type="Button" parent="UpdateCard"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 200.0
+margin_bottom = 152.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Close" type="Button" parent="UpdateCard"]
+margin_left = 164.0
+margin_top = 16.0
+margin_right = 184.0
+margin_bottom = 36.0
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 autoplay = true
@@ -291,3 +439,5 @@ bus = "Voice1"
 [connection signal="button_down" from="Control/Control/Button" to="Control/Control/Button" method="_on_Button_button_down"]
 [connection signal="mouse_entered" from="Control/Control/Button" to="Control/Control/Button" method="_on_Button_mouse_entered"]
 [connection signal="mouse_exited" from="Control/Control/Button" to="Control/Control/Button" method="_on_Button_mouse_exited"]
+[connection signal="button_down" from="UpdateCard/UpdateBtn" to="UpdateCard" method="_InstallUpdate"]
+[connection signal="button_down" from="UpdateCard/Close" to="UpdateCard" method="_ClosePopup"]
