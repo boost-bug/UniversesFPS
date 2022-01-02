@@ -3,7 +3,7 @@ extends Node
 """
 	100% pure GDScript MIDI Player [Godot MIDI Player] by Yui Kinomoto @arlez80
 """
-
+	
 class_name MidiPlayer
 
 # -----------------------------------------------------------------------------
