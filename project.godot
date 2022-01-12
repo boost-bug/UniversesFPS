@@ -253,7 +253,7 @@ enabled=PoolStringArray( "res://addons/midi/plugin.cfg" )
 
 term=false
 cons=false
-"Ver Number"=1
+"Ver Number"=3
 
 [input]
 

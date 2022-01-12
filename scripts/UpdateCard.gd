@@ -24,5 +24,5 @@ func _ClosePopup():
 	$AnimationPlayer.play("popDown")
 
 func _InstallUpdate():
-	OS.shell_open("https://github.com/boost-bug/UniversesFPS/blob/master/build/Universes.exe?raw=true")
+	OS.shell_open("https://github.com/boost-bug/UniversesFPS/blob/master/build/build.7z?raw=true")
 	$AnimationPlayer.play("popDown")
