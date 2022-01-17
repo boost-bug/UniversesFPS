@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://scripts/Control.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Mechanical-g5Y5.otf" type="DynamicFontData" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/shaders/distort1.gdshader" type="Shader" id=8]
 [ext_resource path="res://assets/images/updateCardBG.png" type="Texture" id=9]
 [ext_resource path="res://scripts/UpdateCard.gd" type="Script" id=10]
+[ext_resource path="res://scripts/openShop.gd" type="Script" id=11]
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 8 )
@@ -351,10 +352,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -131.0
-margin_top = -25.0
-margin_right = 131.0
-margin_bottom = 25.0
+margin_left = -128.0
+margin_top = -28.0
+margin_right = 134.0
+margin_bottom = 22.0
 custom_fonts/font = SubResource( 2 )
 text = "Start"
 script = ExtResource( 4 )
@@ -362,7 +363,38 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tween" type="Tween" parent="Control/Control/Button"]
+[node name="Button2" type="Button" parent="Control/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = 60.0
+margin_right = 134.0
+margin_bottom = 110.0
+custom_fonts/font = SubResource( 2 )
+text = "Shop"
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Control/Control/Button2"]
+
+[node name="Button3" type="Button" parent="Control/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = 148.0
+margin_right = 134.0
+margin_bottom = 198.0
+custom_fonts/font = SubResource( 2 )
+text = "Inventory"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Universes" type="Sprite" parent="Control"]
 position = Vector2( 512, 136 )
@@ -439,5 +471,11 @@ bus = "Voice1"
 [connection signal="button_down" from="Control/Control/Button" to="Control/Control/Button" method="_on_Button_button_down"]
 [connection signal="mouse_entered" from="Control/Control/Button" to="Control/Control/Button" method="_on_Button_mouse_entered"]
 [connection signal="mouse_exited" from="Control/Control/Button" to="Control/Control/Button" method="_on_Button_mouse_exited"]
+[connection signal="button_down" from="Control/Control/Button2" to="Control/Control/Button2" method="_on_Button2_button_down"]
+[connection signal="mouse_entered" from="Control/Control/Button2" to="Control/Control/Button2" method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Control/Button2" to="Control/Control/Button2" method="_on_Button_mouse_exited"]
+[connection signal="tween_all_completed" from="Control/Control/Button2/Tween" to="Control/Control/Button2" method="_on_Tween_tween_all_completed"]
+[connection signal="mouse_entered" from="Control/Control/Button3" to="Control/Control/Button3" method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Control/Button3" to="Control/Control/Button3" method="_on_Button_mouse_exited"]
 [connection signal="button_down" from="UpdateCard/UpdateBtn" to="UpdateCard" method="_InstallUpdate"]
 [connection signal="button_down" from="UpdateCard/Close" to="UpdateCard" method="_ClosePopup"]

@@ -1,0 +1,165 @@
+[gd_scene format=2]
+
+[node name="Shop" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.105882, 0.105882, 0.105882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+margin_right = 859.0
+margin_bottom = 481.0
+custom_constants/margin_right = -62
+custom_constants/margin_top = 64
+custom_constants/margin_left = 65
+custom_constants/margin_bottom = 316
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+margin_left = 65.0
+margin_top = 64.0
+margin_right = 1021.0
+margin_bottom = 225.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+margin_right = 956.0
+margin_bottom = 157.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 156.0
+margin_bottom = 157.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/margin_right = 96
+custom_constants/margin_top = 0
+custom_constants/margin_left = 0
+custom_constants/margin_bottom = 97
+
+[node name="ColorRect" type="ColorRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2"]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="MarginContainer3" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 160.0
+margin_right = 316.0
+margin_bottom = 157.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/margin_right = 96
+custom_constants/margin_top = 0
+custom_constants/margin_left = 0
+custom_constants/margin_bottom = 97
+
+[node name="ColorRect" type="ColorRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer3"]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="MarginContainer4" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 320.0
+margin_right = 476.0
+margin_bottom = 157.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/margin_right = 96
+custom_constants/margin_top = 0
+custom_constants/margin_left = 0
+custom_constants/margin_bottom = 97
+
+[node name="ColorRect" type="ColorRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer4"]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="MarginContainer5" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 480.0
+margin_right = 636.0
+margin_bottom = 157.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/margin_right = 96
+custom_constants/margin_top = 0
+custom_constants/margin_left = 0
+custom_constants/margin_bottom = 97
+
+[node name="ColorRect" type="ColorRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer5"]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="MarginContainer6" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 640.0
+margin_right = 796.0
+margin_bottom = 157.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/margin_right = 96
+custom_constants/margin_top = 0
+custom_constants/margin_left = 0
+custom_constants/margin_bottom = 97
+
+[node name="ColorRect" type="ColorRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer6"]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="MarginContainer7" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 800.0
+margin_right = 956.0
+margin_bottom = 157.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/margin_right = 96
+custom_constants/margin_top = 0
+custom_constants/margin_left = 0
+custom_constants/margin_bottom = 97
+
+[node name="ColorRect" type="ColorRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer7"]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+margin_top = 161.0
+margin_right = 956.0
+margin_bottom = 161.0
+
+[node name="Button" type="Button" parent="Control"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 48.0
+margin_bottom = 48.0
+text = "Close"
+__meta__ = {
+"_edit_use_anchors_": false
+}
