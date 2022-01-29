@@ -10,7 +10,7 @@ var dir = Vector3()
 
 var isGunReload = false
 
-const DEACCEL= 16
+const DEACCEL= 2
 const MAX_SLOPE_ANGLE = 40
 
 var camera
@@ -62,7 +62,8 @@ func process_input(delta):
 			vel.y = JUMP_SPEED
 			print(MAX_SPEED)
 			if (MAX_SPEED < 50):
-				MAX_SPEED *= 1.16
+				MAX_SPEED *= 1.20
+			$Tween.stop_all()
 			$Tween.interpolate_property(self, 'MAX_SPEED', null, 20, 5)
 			$Tween.start()
 
