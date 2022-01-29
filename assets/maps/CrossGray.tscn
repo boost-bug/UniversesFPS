@@ -7,16 +7,23 @@
 [ext_resource path="res://addons/midi/MidiPlayer.gd" type="Script" id=6]
 
 [sub_resource type="ProceduralSky" id=1]
+ground_bottom_color = Color( 0.647059, 0.839216, 0.945098, 1 )
+ground_horizon_color = Color( 0.839216, 0.917647, 0.980392, 1 )
+ground_curve = 0.0313834
+ground_energy = 0.75
 
 [sub_resource type="Environment" id=2]
 background_mode = 2
 background_sky = SubResource( 1 )
 ambient_light_color = Color( 1, 1, 1, 1 )
 ambient_light_energy = 3.0
+fog_enabled = true
+tonemap_mode = 3
+tonemap_exposure = 0.7
+tonemap_white = 2.17
 glow_enabled = true
-glow_intensity = 2.06
-glow_strength = 0.88
-glow_bloom = 0.84
+glow_intensity = 3.73
+glow_strength = 1.06
 
 [sub_resource type="CylinderShape" id=7]
 radius = 61.59
@@ -539,6 +546,13 @@ bus = "FX2"
 transform = Transform( 0.479418, -0.395701, 0.783313, -0.0153235, 0.888665, 0.4583, -0.877453, -0.231721, 0.419979, 113.198, 102.037, 58.6979 )
 fov = 100.0
 far = 9999.0
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 175.595, 0 )
+light_energy = 1.539
+shadow_enabled = true
+shadow_bias = 0.917
+shadow_contact = 0.259
 
 [connection signal="area_entered" from="Dynamic/KillZone" to="Dynamic/KillZone" method="_on_KillZone_area_entered"]
 [connection signal="timeout" from="Dynamic/Spawn/MoveTimer" to="Dynamic/Spawn" method="_MoveSpawn"]
