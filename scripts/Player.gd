@@ -91,11 +91,19 @@ func process_movement(delta):
 	target *= MAX_SPEED
 
 	var accel
+	
 	if dir.dot(hvel) > 0:
 		accel = ACCEL
+		if hvel.x > 15 or hvel.z > 15:
+			accel = 30
+		if hvel.x < -15 or hvel.z < -15:
+			accel = 30
 	else:
 		accel = DEACCEL
-
+	
+	
+	
+	print(accel, " ", hvel.x, " ", hvel.y)
 	hvel = hvel.linear_interpolate(target, accel * delta)
 	vel.x = hvel.x
 	vel.z = hvel.z
